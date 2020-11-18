@@ -2,7 +2,7 @@
 import React, { ReactNode } from "react";
 import Svg, { Path } from "react-native-svg";
 
-import theme, { Box } from "./Theme";
+import theme, { Box } from "../../components/Theme";
 
 const SIZE = theme.borderRadii.l * 2;
 

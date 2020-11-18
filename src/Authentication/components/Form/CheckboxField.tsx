@@ -12,8 +12,8 @@ interface CheckBoxFieldProps {
 
 const CheckBoxField = ({ label, checked, onChange }: CheckBoxFieldProps) => {
   return (
-    <RectButton onPress={() => onChange()} style={{ justifyContent: "center" }}>
-      <Box flexDirection="row">
+    <RectButton onPress={onChange} style={{ justifyContent: "center" }}>
+      <Box flexDirection="row" alignItems="center">
         <Box
           marginRight="s"
           width={20}

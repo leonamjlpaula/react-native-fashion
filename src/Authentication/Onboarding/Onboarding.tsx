@@ -8,8 +8,9 @@ import Animated, {
   multiply,
 } from "react-native-reanimated";
 
-import { theme } from "../../components";
+import { useTheme, makeStyles } from "../../components";
 import { StackNavigationProps, Routes } from "../../components/Navigation";
+import { Theme } from "../../components/Theme";
 
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import Subslide from "./Subslide";
@@ -17,7 +18,7 @@ import Dot from "./Dot";
 
 const { width } = Dimensions.get("window");
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: theme.borderRadii.xl,
     overflow: "hidden",
   },
-});
+}));
 
 const slides = [
   {
@@ -107,6 +108,9 @@ export const assets = slides.map((slide) => slide.picture.src);
 const Onboarding = ({
   navigation,
 }: StackNavigationProps<Routes, "Onboarding">) => {
+  const styles = useStyles();
+  const theme = useTheme();
+
   const scroll = useRef<Animated.ScrollView>(null);
 
   const { scrollHandler, x } = useScrollHandler();
@@ -133,8 +137,10 @@ const Onboarding = ({
               <Image
                 source={picture.src}
                 style={{
-                  width: width - 75,
-                  height: ((width - 75) * picture.height) / picture.width,
+                  width: width - theme.borderRadii.xl,
+                  height:
+                    ((width - theme.borderRadii.xl) * picture.height) /
+                    picture.width,
                 }}
               />
             </Animated.View>
