@@ -77,11 +77,11 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
             value={values.password}
             error={errors.password}
             touched={touched.password}
-            secureTextEntry
             autoCompleteType="password"
             autoCapitalize="none"
             returnKeyType="go"
             returnKeyLabel="go"
+            secureTextEntry
             onSubmitEditing={() => handleSubmit()}
           />
           <Box flexDirection="row" justifyContent="space-between" marginTop="s">
@@ -90,7 +90,10 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button variant="transparent" onPress={() => console.log("forgot")}>
+            <Button
+              variant="transparent"
+              onPress={() => navigation.navigate("ForgotPassword")}
+            >
               <Text color="primary">Forgot password</Text>
             </Button>
           </Box>
