@@ -11,6 +11,7 @@ const PasswordChanged = ({
 }: StackNavigationProps<Routes, "PasswordChanged">) => {
   return (
     <Container
+      pattern={0}
       footer={
         <Box alignItems="center">
           <CloseButton onPress={() => navigation.pop()} />

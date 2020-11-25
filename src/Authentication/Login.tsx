@@ -6,10 +6,10 @@ import * as Yup from "yup";
 import { StackNavigationProps, Routes } from "../components/Navigation";
 import { Button, Container } from "../components";
 import { Box, Text } from "../components/Theme";
+import TextInput from "../components/Form/TextInput";
+import CheckBoxField from "../components/Form/CheckboxField";
 
-import CheckBoxField from "./components/Form/CheckboxField";
 import Footer from "./components/Footer";
-import TextInput from "./components/Form/TextInput";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string().min(6, "Too Short!").required("Required"),
@@ -43,7 +43,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   });
 
   return (
-    <Container {...{ footer }}>
+    <Container pattern={0} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center" marginBottom="l">
           Welcome back

@@ -7,7 +7,8 @@ import {
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 
-import { Box, theme } from "../../../components/Theme";
+import { Box, theme } from "../Theme";
+import RoundedIcon from "../RoundedIcon";
 
 const SIZE = theme.borderRadii.m * 2;
 
@@ -42,16 +43,12 @@ const TextInput = forwardRef<RNTextInput, TextInputProps>(
           {...props}
         />
         {touched && (
-          <Box
-            height={SIZE}
-            width={SIZE}
-            borderRadius="m"
-            alignItems="center"
-            justifyContent="center"
+          <RoundedIcon
+            name={!error ? "check" : "x"}
+            color="white"
+            size={12}
             backgroundColor={!error ? "primary" : "danger"}
-          >
-            <Icon name={!error ? "check" : "x"} color="white" size={12} />
-          </Box>
+          />
         )}
       </Box>
     );
