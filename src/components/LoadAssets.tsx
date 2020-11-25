@@ -6,6 +6,7 @@ import * as Font from "expo-font";
 import { InitialState, NavigationContainer } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 
 const NAVIGATION_STATE_KEY = `NAVIGATION_STATE_KEY-${Constants.manifest.sdkVersion}`;
 

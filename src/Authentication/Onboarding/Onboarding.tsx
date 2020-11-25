@@ -9,7 +9,10 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { useTheme, makeStyles } from "../../components";
-import { StackNavigationProps, Routes } from "../../components/Navigation";
+import {
+  StackNavigationProps,
+  AuthenticationRoutes,
+} from "../../components/Navigation";
 import { Theme } from "../../components/Theme";
 
 import Slide, { SLIDE_HEIGHT } from "./Slide";
@@ -107,7 +110,7 @@ export const assets = slides.map((slide) => slide.picture.src);
 
 const Onboarding = ({
   navigation,
-}: StackNavigationProps<Routes, "Onboarding">) => {
+}: StackNavigationProps<AuthenticationRoutes, "Onboarding">) => {
   const styles = useStyles();
   const theme = useTheme();
 

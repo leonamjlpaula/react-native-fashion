@@ -5,7 +5,10 @@ import * as Yup from "yup";
 
 import { Button, Container } from "../components";
 import { Box, Text } from "../components/Theme";
-import { StackNavigationProps, Routes } from "../components/Navigation";
+import {
+  StackNavigationProps,
+  AuthenticationRoutes,
+} from "../components/Navigation";
 import TextInput from "../components/Form/TextInput";
 
 import Footer from "./components/Footer";
@@ -18,7 +21,9 @@ const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
-const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
+const SignUp = ({
+  navigation,
+}: StackNavigationProps<AuthenticationRoutes, "SignUp">) => {
   const password = useRef<RNTextInput>(null);
   const passwordConfirmation = useRef<RNTextInput>(null);
   const footer = (
@@ -26,7 +31,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
       action="Login here"
       title="Already have an account? "
       onPress={() => {
-        navigation.navigate("SignUp");
+        navigation.navigate("Login");
       }}
     />
   );
@@ -40,7 +45,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
   );
 
   return (
-    <Container pattern={0} {...{ footer }}>
+    <Container pattern={1} {...{ footer }}>
       <Box padding="xl">
         <Text variant="title1" textAlign="center" marginBottom="l">
           Create an account

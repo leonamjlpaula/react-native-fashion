@@ -1,40 +1,50 @@
 import React from "react";
-import { Feather as Icon } from "@expo/vector-icons";
 
-import { Box, Button, Container, Text, CloseButton } from "../components";
-import { StackNavigationProps, Routes } from "../components/Navigation";
+import {
+  Box,
+  Button,
+  Container,
+  Text,
+  RoundedIconButton,
+  RoundedIcon,
+} from "../components";
+import {
+  StackNavigationProps,
+  AuthenticationRoutes,
+} from "../components/Navigation";
 
 const SIZE = 80;
 
 const PasswordChanged = ({
   navigation,
-}: StackNavigationProps<Routes, "PasswordChanged">) => {
+}: StackNavigationProps<AuthenticationRoutes, "PasswordChanged">) => {
   return (
     <Container
       pattern={0}
       footer={
         <Box alignItems="center">
-          <CloseButton onPress={() => navigation.pop()} />
+          <RoundedIconButton
+            backgroundColor="white"
+            color="secondary"
+            name="x"
+            size={60}
+            onPress={() => navigation.pop()}
+          />
         </Box>
       }
     >
       <Box flex={1} justifyContent="center" alignItems="center" padding="xl">
-        <Box
-          style={{ height: SIZE, width: SIZE, borderRadius: SIZE / 2 }}
+        <RoundedIcon
           backgroundColor="primaryLight"
-          justifyContent="center"
-          alignItems="center"
-          marginBottom="m"
-        >
-          <Text color="primary">
-            <Icon name="check" size={32} />
-          </Text>
-        </Box>
-        <Text variant="title1" textAlign="center" marginBottom="l">
-          Password changed
+          color="primary"
+          size={SIZE}
+          name="check"
+        />
+        <Text variant="title1" textAlign="center" marginVertical="l">
+          Your password was succesfully changed
         </Text>
         <Text variant="body" textAlign="center" marginBottom="l">
-          Enter the email address associated with your account
+          Close this window and login again
         </Text>
         <Box alignItems="center" marginTop="xl">
           <Button

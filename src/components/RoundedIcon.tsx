@@ -3,14 +3,19 @@ import { Feather as Icon } from "@expo/vector-icons";
 
 import { Box, Text, Theme } from "./Theme";
 
-interface RoundedProps {
+export interface RoundedIconProps {
   name: string;
   size: number;
   color: keyof Theme["colors"];
   backgroundColor: keyof Theme["colors"];
 }
 
-const RoundedIcon = ({ name, size, color, backgroundColor }: RoundedProps) => {
+const RoundedIcon = ({
+  name,
+  size,
+  color,
+  backgroundColor,
+}: RoundedIconProps) => {
   const iconSize = size * 0.7;
   return (
     <Box

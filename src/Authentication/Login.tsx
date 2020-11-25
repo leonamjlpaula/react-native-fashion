@@ -2,8 +2,12 @@ import React, { useRef } from "react";
 import { TextInput as RNTextInput } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { BorderlessButton } from "react-native-gesture-handler";
 
-import { StackNavigationProps, Routes } from "../components/Navigation";
+import {
+  StackNavigationProps,
+  AuthenticationRoutes,
+} from "../components/Navigation";
 import { Button, Container } from "../components";
 import { Box, Text } from "../components/Theme";
 import TextInput from "../components/Form/TextInput";
@@ -16,7 +20,9 @@ const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
-const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
+const Login = ({
+  navigation,
+}: StackNavigationProps<AuthenticationRoutes, "Login">) => {
   const password = useRef<RNTextInput>(null);
   const footer = (
     <Footer
@@ -39,7 +45,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   } = useFormik({
     validationSchema: LoginSchema,
     initialValues: { email: "", password: "", remember: false },
-    onSubmit: () => navigation.navigate("SignUp"),
+    onSubmit: () => navigation.navigate("Home"),
   });
 
   return (
@@ -84,18 +90,17 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
             secureTextEntry
             onSubmitEditing={() => handleSubmit()}
           />
-          <Box flexDirection="row" justifyContent="space-between" marginTop="s">
+          <Box flexDirection="row" justifyContent="space-between" marginTop="m">
             <CheckBoxField
               label="Remember me"
               checked={values.remember}
               onChange={() => setFieldValue("remember", !values.remember)}
             />
-            <Button
-              variant="transparent"
+            <BorderlessButton
               onPress={() => navigation.navigate("ForgotPassword")}
             >
               <Text color="primary">Forgot password</Text>
-            </Button>
+            </BorderlessButton>
           </Box>
           <Box alignItems="center" marginTop="xl">
             <Button
