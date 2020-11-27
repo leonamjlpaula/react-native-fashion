@@ -1,6 +1,6 @@
 import React from "react";
 import { Dimensions, Image, StyleSheet } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+// import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Box, Text, RoundedIconButton } from "../../components";
 
@@ -46,7 +46,7 @@ const items: DrawerItemProps[] = [
 ];
 
 const Drawer = () => {
-  const insets = useSafeAreaInsets();
+  // const insets = useSafeAreaInsets();
 
   return (
     <Box flex={1}>
@@ -62,7 +62,6 @@ const Drawer = () => {
           flexDirection="row"
           justifyContent="space-between"
           paddingHorizontal="m"
-          style={{ paddingTop: insets.top }}
         >
           <RoundedIconButton
             name="x"
