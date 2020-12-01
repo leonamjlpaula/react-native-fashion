@@ -1,6 +1,6 @@
 import React from "react";
 import { Dimensions, Image, StyleSheet } from "react-native";
-// import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Box, Text, RoundedIconButton } from "../../components";
 
@@ -46,7 +46,7 @@ const items: DrawerItemProps[] = [
 ];
 
 const Drawer = () => {
-  // const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets();
 
   return (
     <Box flex={1}>
@@ -62,6 +62,7 @@ const Drawer = () => {
           flexDirection="row"
           justifyContent="space-between"
           paddingHorizontal="m"
+          style={{ paddingTop: insets.top }}
         >
           <RoundedIconButton
             name="x"
@@ -82,7 +83,17 @@ const Drawer = () => {
       </Box>
       <Box flex={0.8}>
         <Box flex={1} backgroundColor="secondary" />
-        <Box flex={1} backgroundColor="primaryLight" />
+        <Image
+          source={require("../../components/assets/patterns/pattern3.png")}
+          style={{
+            position: "absolute",
+            bottom: -height * 0.61,
+            left: 0,
+            right: 0,
+            width: DRAWER_WIDTH,
+            height,
+          }}
+        />
         <Box
           position="absolute"
           top={0}
@@ -124,7 +135,7 @@ const Drawer = () => {
         height={height * 0.61}
       >
         <Image
-          source={require("../../components/assets/patterns/pattern1.png")}
+          source={require("../../components/assets/patterns/pattern3.png")}
           style={{
             ...StyleSheet.absoluteFillObject,
             width: undefined,
