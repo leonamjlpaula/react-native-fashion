@@ -16,7 +16,7 @@ const items: DrawerItemProps[] = [
     icon: "zap",
     label: "Outfit Ideas",
     screen: "OutfitIdeas",
-    color: "primary",
+    color: "danger",
   },
   {
     icon: "heart",
