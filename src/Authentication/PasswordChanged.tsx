@@ -8,16 +8,13 @@ import {
   RoundedIconButton,
   RoundedIcon,
 } from "../components";
-import {
-  StackNavigationProps,
-  AuthenticationRoutes,
-} from "../components/Navigation";
+import { AuthNavigationProps } from "../components/Navigation";
 
 const SIZE = 80;
 
 const PasswordChanged = ({
   navigation,
-}: StackNavigationProps<AuthenticationRoutes, "PasswordChanged">) => {
+}: AuthNavigationProps<"PasswordChanged">) => {
   return (
     <Container
       pattern={0}

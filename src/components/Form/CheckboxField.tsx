@@ -23,7 +23,7 @@ const CheckBoxField = ({ label, checked, onChange }: CheckBoxFieldProps) => {
           borderRadius="s"
           borderWidth={1}
           borderColor="primary"
-          backgroundColor={checked ? "primary" : "background"}
+          backgroundColor={checked ? "primary" : "white"}
         >
           <Icon name="check" color="white" />
         </Box>

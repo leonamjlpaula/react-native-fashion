@@ -5,10 +5,7 @@ import * as Yup from "yup";
 
 import { Button, Container } from "../components";
 import { Box, Text } from "../components/Theme";
-import {
-  StackNavigationProps,
-  AuthenticationRoutes,
-} from "../components/Navigation";
+import { AuthNavigationProps } from "../components/Navigation";
 import TextInput from "../components/Form/TextInput";
 
 import Footer from "./components/Footer";
@@ -21,9 +18,7 @@ const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
-const SignUp = ({
-  navigation,
-}: StackNavigationProps<AuthenticationRoutes, "SignUp">) => {
+const SignUp = ({ navigation }: AuthNavigationProps<"SignUp">) => {
   const password = useRef<RNTextInput>(null);
   const passwordConfirmation = useRef<RNTextInput>(null);
   const footer = (
