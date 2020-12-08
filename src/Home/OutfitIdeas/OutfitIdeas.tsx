@@ -7,7 +7,6 @@ import { HomeNavigationProps } from "../../components/Navigation";
 
 import Background from "./Background";
 import Card from "./Card";
-import Categories from "./Categories";
 
 const cards = [
   {
@@ -41,21 +40,20 @@ const OutfitIdeas = ({ navigation }: HomeNavigationProps<"OutfitIdeas">) => {
         right={{ icon: "shopping-bag", onPress: () => true }}
         title="Menu"
       />
-      <Categories />
       <Box flex={1}>
         <Background />
-        {cards.map(
-          ({ index, source }) =>
-            currentIndex < index * step + step && (
-              <Card
-                key={index}
-                position={sub(index * step, aIndex)}
-                onSwipe={() => setCurrentIndex((prev) => prev + step)}
-                {...{ source, step }}
-              />
-            )
-        )}
       </Box>
+      {cards.map(
+        ({ index, source }) =>
+          currentIndex < index * step + step && (
+            <Card
+              key={index}
+              position={sub(index * step, aIndex)}
+              onSwipe={() => setCurrentIndex((prev) => prev + step)}
+              {...{ source, step }}
+            />
+          )
+      )}
     </Box>
   );
 };
